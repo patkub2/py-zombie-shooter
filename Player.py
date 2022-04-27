@@ -14,9 +14,10 @@ class Player(pg.sprite.Sprite):
         self.offset = Vector2(0,0)  # We shift the sprite 50 px to the right.
         self.angle = 0
         self.movementSpeed = 5
-        self.availableWeapons = [Weapon.Pistol(),
-                                 Weapon.Shotgun(),
-                                 Weapon.MachineGun()]
+        self.availableWeapons = [Weapon.Pistol()]
+
+
+        
         self.equippedWeapon = self.availableWeapons[0]
 
     def update(self):
@@ -43,4 +44,4 @@ class Player(pg.sprite.Sprite):
         self.equippedWeapon.shoot(self, mousePos)
         
     def render(self, surface):
-        surface.blit(self.image, self.pos)        
+        surface.blit(self.image, self.rect)        
