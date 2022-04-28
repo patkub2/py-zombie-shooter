@@ -1,6 +1,5 @@
 import pygame as pg
 from pygame.math import Vector2
-import Weapon
 
 class Player(pg.sprite.Sprite):
     projectiles = pg.sprite.Group()
@@ -14,11 +13,8 @@ class Player(pg.sprite.Sprite):
         self.offset = Vector2(0,0)  # We shift the sprite 50 px to the right.
         self.angle = 0
         self.movementSpeed = 5
-        self.availableWeapons = [Weapon.Pistol()]
+       
 
-
-        
-        self.equippedWeapon = self.availableWeapons[0]
 
     def update(self):
         self.rotate()
@@ -40,8 +36,6 @@ class Player(pg.sprite.Sprite):
         # Create a new rect with the center of the old rect.
         self.rect = self.image.get_rect(center=self.rect.center)
         
-    def shoot(self, mousePos):
-        self.equippedWeapon.shoot(self, mousePos)
-        
+
     def render(self, surface):
         surface.blit(self.image, self.rect)        
